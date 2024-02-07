@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | KnightedTrainerAlpha</title>
-  </head>
-  <body style="text-align: center">
-    <canvas id="unity-canvas" width=535 height=857 style="width: 535px; height: 857px; background: #231F20"></canvas>
-    <script src="Build/TrainerWeb.loader.js"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
+    <link rel="stylesheet" href="TemplateData/style.css" />
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="%UNITY_WEBGL_LOADER_URL%"></script>
     <script>
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "Build/TrainerWeb.data",
-        frameworkUrl: "Build/TrainerWeb.framework.js",
-        codeUrl: "Build/TrainerWeb.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "GameKnight",
-        productName: "KnightedTrainerAlpha",
-        productVersion: "1.5.06",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      });
+      var unityInstance = UnityLoader.instantiate("unityContainer", "%UNITY_WEBGL_BUILD_URL%");
     </script>
+  </head>
+  <body>
+    <div class="webgl-content">
+      <div id="unityContainer"></div>
+      <div class="footer">
+        <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+      </div>
+    </div>
   </body>
 </html>
